@@ -52,3 +52,4 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     // Mostra il risultato
     document.getElementById("result").style.display = "block";
 });
+

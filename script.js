@@ -128,4 +128,15 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     // Mostra il risultato
     document.getElementById("result").style.display = "block";
 });
-
+const inputs = document.querySelectorAll('input[type="radio"]');
+inputs.forEach(input => {
+    input.addEventListener('change', function() {
+        const question = this.name;
+        const selectedAnswer = this.value;
+        const commentId = `comment${question.slice(-1)}${selectedAnswer}`;
+        const commentElement = document.getElementById(commentId);
+        if (commentElement) {
+            commentElement.style.display = "inline"; // Mostra il commento
+        }
+    });
+});

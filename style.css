@@ -10,21 +10,21 @@ body {
 .comment {
     font-size: 14px;
     margin-left: 10px;
-    display: inline-block;
+    display: block;  /* Cambia da inline-block a block per separare meglio i commenti */
     font-style: italic;
     transition: all 0.3s ease-in-out;
+    margin-top: 5px; /* Aggiungi un piccolo margine per i commenti */
 }
 
 .correct {
-    color: green;      /* Verde per le risposte corrette */
+    color: green;
     font-weight: bold;
 }
 
 .incorrect {
-    color: red;        /* Rosso per le risposte sbagliate */
+    color: red;
     font-weight: bold;
 }
-
 /* Contenitore del quiz */
 .container {
     max-width: 600px;

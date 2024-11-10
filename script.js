@@ -60,16 +60,16 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
             d: "Sempre odiato, se hai risposto questo non conosci nulla di me"
         },
         question6: {
-            a: "Menomale, almeno mi conosci un pochino!!",
-            b: "Quando mai è stato il rossooooo",
-            c: "Questo è il tuo, CRETINAAA",
-            d: "E'vero metto sempre magliette bianche, però non è questooo!"
-        },
-        question7: {
             a: "Ti piacerebbeeeeeee",
-            b: "Ti piacerebbeeeee",
+            b: "Ti piacerebbeeeeeee",
             c: "Beh se non lo sai tu...vecchiaaaa",
             d: "Ora non esageriamo!"
+        },
+        question7: {
+            a: "Sei vecchia è vero, ma per me sei altro...",
+            b: "E invece si",
+            c: "Cretina sari tu!!",
+            d: "Propio una bella milfona mlmlml (senza figli fortunatamente)"
         },
         question8: {
             a: "Sono triste...",

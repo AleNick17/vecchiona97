@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz per la Mia Ragazza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz per te!</h1>
+        <form id="quizForm">
+            <p>1. Dove ci siamo conosciuti?</p>
+            <input type="radio" name="q1" value="parco"> Al parco<br>
+            <input type="radio" name="q1" value="universita"> All'università<br>
+            <input type="radio" name="q1" value="lavoro"> Al lavoro<br>
+            
+            <p>2. Qual è il mio colore preferito?</p>
+            <input type="radio" name="q2" value="blu"> Blu<br>
+            <input type="radio" name="q2" value="rosso"> Rosso<br>
+            <input type="radio" name="q2" value="verde"> Verde<br>
+
+            <button type="submit">Invia Risposte</button>
+        </form>
+        <div id="result" style="display:none;">
+            <h2>Grazie per aver risposto!</h2>
+            <p>Abbiamo ottenuto le tue risposte. Scoprile presto!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

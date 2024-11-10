@@ -1,28 +1,34 @@
-/* Sfondo a gradiente verde-rosa */
+/* Sfondo verde e rosa */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(45deg, #98FB98, #FF69B4); /* Verde chiaro e rosa */
-    min-height: 100vh; /* Permette la visualizzazione a pieno schermo */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Impostiamo l'allineamento al top per il corpo */
+    align-items: flex-start;
     flex-direction: column;
-    overflow-x: hidden; /* Non vogliamo scrollare orizzontalmente */
+    overflow-x: hidden;
 }
 
 /* Container centrale del quiz */
 .container {
-    background-color: rgba(255, 255, 255, 0.9); /* Più trasparente per far risaltare il background */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 15px;
     width: 100%;
-    max-width: 800px; /* Più largo per rendere il quiz più leggibile */
+    max-width: 800px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     position: relative;
-    overflow-y: auto; /* Permette lo scroll se il contenuto eccede l'altezza */
-    max-height: 90vh; /* Limitiamo l'altezza massima del contenitore per evitare di coprire tutto lo schermo */
+    overflow: hidden;
+}
+
+/* Contenitore scrollabile per le domande */
+.questions-container {
+    max-height: 60vh; /* Aggiungiamo un limite all'altezza */
+    overflow-y: auto; /* Permette lo scorrimento verticale */
+    padding-right: 10px; /* Spazio per la scrollbar */
 }
 
 /* Stile per le domande */
@@ -43,12 +49,11 @@ form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    text-align: left;
 }
 
 /* Stile per il bottone */
 button {
-    background-color: #FF69B4; /* Rosa */
+    background-color: #FF69B4;
     border: none;
     color: white;
     font-size: 18px;
@@ -59,19 +64,19 @@ button {
 }
 
 button:hover {
-    background-color: #ff1493; /* Rosa scuro al passaggio del mouse */
+    background-color: #ff1493;
 }
 
 /* Stile per i cuori che cambiano posizione */
 .heart {
     position: absolute;
     font-size: 40px;
-    color: #FF1493; /* Rosa scuro */
+    color: #FF1493;
     animation: heartAnimation 5s ease-in-out infinite;
     z-index: -1; /* Posizioniamo i cuori dietro al contenuto */
 }
 
-/* Animazione che fa muovere i cuori casualmente */
+/* Animazione per il movimento dei cuori */
 @keyframes heartAnimation {
     0% { transform: translate(0, 0); }
     25% { transform: translate(50px, 100px); }
@@ -80,7 +85,7 @@ button:hover {
     100% { transform: translate(0, 0); }
 }
 
-/* Aggiungiamo più cuori nella pagina */
+/* Aggiungiamo più cuori */
 .heart:nth-child(odd) {
     animation-duration: 6s;
 }
@@ -97,11 +102,11 @@ button:hover {
 }
 
 #score {
-    color: #32CD32; /* Verde per il punteggio */
+    color: #32CD32;
 }
 
 #message {
-    color: #FF6347; /* Colore arancio per il messaggio */
+    color: #FF6347;
 }
 
 /* Commenti per le risposte */

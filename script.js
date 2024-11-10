@@ -1,3 +1,17 @@
+// Funzione per generare posizioni casuali per i cuori
+function generateHeartPositions() {
+    const hearts = document.querySelectorAll('.heart');
+    hearts.forEach(heart => {
+        const randomX = Math.random() * 100;  // Posizione orizzontale tra 0 e 100%
+        const randomY = Math.random() * 100;  // Posizione verticale tra 0 e 100%
+        heart.style.left = `${randomX}%`;
+        heart.style.top = `${randomY}%`;
+    });
+}
+
+// Esegui la funzione quando la pagina si carica
+window.onload = generateHeartPositions;
+
 // Aggiungi un event listener per il submit del form
 document.getElementById("quiz-form").addEventListener("submit", function(event) {
     event.preventDefault();  // Impedisce il ricaricamento della pagina

@@ -51,25 +51,25 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
             b: "Quando mai è stato il rossooooo?!?!",
             c: "Questo è il tuo, CRETINAAA",
             d: "E'vero metto sempre magliette bianche, però non è questooo!"
-        }
+        },
         question5: {
             a: "Menomale, almeno mi conosci un pochino!!",
             b: "Quando mai è stato il rossooooo",
             c: "Questo è il tuo, CRETINAAA",
             d: "E'vero metto sempre magliette bianche, però non è questooo!"
-        }
+        },
         question6: {
             a: "Menomale, almeno mi conosci un pochino!!",
             b: "Quando mai è stato il rossooooo",
             c: "Questo è il tuo, CRETINAAA",
             d: "E'vero metto sempre magliette bianche, però non è questooo!"
-        }
+        },
         question7: {
             a: "Menomale, almeno mi conosci un pochino!!",
             b: "Quando mai è stato il rossooooo",
             c: "Questo è il tuo, CRETINAAA",
             d: "E'vero metto sempre magliette bianche, però non è questooo!"
-        }
+        },
         question8: {
             a: "Menomale, almeno mi conosci un pochino!!",
             b: "Quando mai è stato il rossooooo",

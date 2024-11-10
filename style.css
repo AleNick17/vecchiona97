@@ -7,6 +7,24 @@ body {
     overflow: hidden; /* Impedisce la comparsa di scroll se i cuori escono dai bordi */
 }
 
+.comment {
+    font-size: 14px;
+    margin-left: 10px;
+    display: inline-block;
+    font-style: italic;
+    transition: all 0.3s ease-in-out;
+}
+
+.correct {
+    color: green;      /* Verde per le risposte corrette */
+    font-weight: bold;
+}
+
+.incorrect {
+    color: red;        /* Rosso per le risposte sbagliate */
+    font-weight: bold;
+}
+
 /* Contenitore del quiz */
 .container {
     max-width: 600px;

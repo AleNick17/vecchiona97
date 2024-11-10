@@ -10,7 +10,7 @@ body {
 .comment {
     font-size: 14px;
     margin-left: 10px;
-    display: block;  /* Cambia da inline-block a block per separare meglio i commenti */
+    display: none;  /* Cambia da inline-block a block per separare meglio i commenti */
     font-style: italic;
     transition: all 0.3s ease-in-out;
     margin-top: 5px; /* Aggiungi un piccolo margine per i commenti */

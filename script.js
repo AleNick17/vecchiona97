@@ -1,28 +1,28 @@
-// Funzione che controlla le risposte e mostra il punteggio
+// Aggiungi un event listener per il submit del form
 document.getElementById("quiz-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Impedisce il ricaricamento della pagina
+    event.preventDefault();  // Impedisce il ricaricamento della pagina
     
-    // Risposte corrette
+    // Risposte corrette per ciascuna domanda
     const correctAnswers = {
-        q1: 'Su Omegle',  // Risposta corretta per la domanda sul luogo
-        q2: '2021'  // Risposta corretta per la domanda sull'anno
-        q3: 'Giovedì 26 Agosto'  // Risposta corretta per la domanda sul giorno
-        q4: 'Blu'  // Risposta corretta per la domanda sul colore
+        question1: 'c', // La risposta corretta alla domanda 1 è "Su Omegle"
+        question2: 'c', // La risposta corretta alla domanda 2 è "2021"
+        question3: 'a', // La risposta corretta alla domanda 3 è "Giovedì 26 agosto"
+        question4: 'a'  // La risposta corretta alla domanda 4 è "Blu"
     };
 
     // Risposte dell'utente
     const userAnswers = {
-        q1: document.querySelector('input[name="q1"]:checked')?.value,
-        q2: document.querySelector('input[name="q2"]:checked')?.value,
-        q3: document.querySelector('input[name="q3"]:checked')?.value,
-        q4: document.querySelector('input[name="q4"]:checked')?.value
+        question1: document.querySelector('input[name="question1"]:checked')?.value,
+        question2: document.querySelector('input[name="question2"]:checked')?.value,
+        question3: document.querySelector('input[name="question3"]:checked')?.value,
+        question4: document.querySelector('input[name="question4"]:checked')?.value
     };
 
-    // Contatore per le risposte corrette
+    // Calcola il punteggio
     let score = 0;
     let totalQuestions = Object.keys(correctAnswers).length;
 
-    // Confronta le risposte dell'utente con quelle corrette
+    // Confronta le risposte dell'utente con le risposte corrette
     for (let key in correctAnswers) {
         if (correctAnswers[key] === userAnswers[key]) {
             score++;
@@ -32,22 +32,23 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     // Calcola la percentuale di risposte corrette
     const percentage = (score / totalQuestions) * 100;
 
-    // Mostra il punteggio e il messaggio
+    // Mostra il punteggio
     document.getElementById("score").textContent = `Hai ottenuto ${score} su ${totalQuestions} risposte corrette! (${percentage.toFixed(2)}%)`;
 
+    // Mostra il messaggio in base alla percentuale
     let message;
     if (percentage === 100) {
-        message = "Complimenti! Sei una vera esperta!";
+        message = "Complimenti! Sei un esperto!";
     } else if (percentage >= 75) {
-        message = "Ben fatto! Sei molto vicino alla perfezione!";
+        message = "Ben fatto! Sei molto bravo!";
     } else if (percentage >= 50) {
-        message = "Bene! Ma puoi fare ancora meglio!";
+        message = "Non male, ma c'è ancora spazio per migliorare!";
     } else {
-        message = "Ci vuole un po' più di pratica, ma non ti preoccupare, ci riuscirai!";
+        message = "Oh no! Dobbiamo ripassare un po'!";
     }
 
     document.getElementById("message").textContent = message;
 
     // Mostra il risultato
-    document.getElementById("result").style.display = "";
+    document.getElementById("result").style.display = "block";
 });

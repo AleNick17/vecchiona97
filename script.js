@@ -117,6 +117,7 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     let message;
     if (percentage === 100) {
         message = "Bravissima amore mio, HAI VINTO!!!";
+        document.getElementById("birthday-message").style.display = "block"; // Mostra il messaggio di compleanno
     } else if (percentage >= 75) {
         message = "Dai poteva andare peggio, spero tu ne abbia sbagliata solo una...";
     } else if (percentage >= 50) {

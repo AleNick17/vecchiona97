@@ -4,51 +4,38 @@ body {
     padding: 0;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(45deg, #98FB98, #FF69B4); /* Verde chiaro e rosa */
-    height: 100vh;
+    min-height: 100vh; /* Permette la visualizzazione a pieno schermo */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Impostiamo l'allineamento al top per il corpo */
     flex-direction: column;
-    color: #fff;
+    overflow-x: hidden; /* Non vogliamo scrollare orizzontalmente */
 }
 
 /* Container centrale del quiz */
 .container {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9); /* Più trasparente per far risaltare il background */
     padding: 30px;
     border-radius: 15px;
     width: 100%;
-    max-width: 600px;
-    text-align: center;
+    max-width: 800px; /* Più largo per rendere il quiz più leggibile */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow-y: auto; /* Permette lo scroll se il contenuto eccede l'altezza */
+    max-height: 90vh; /* Limitiamo l'altezza massima del contenitore per evitare di coprire tutto lo schermo */
 }
 
-/* Stile per i cuori che cambiano posizione */
-.heart {
-    position: absolute;
-    font-size: 30px;
-    animation: heartAnimation 3s ease-in-out infinite;
-}
-
-/* Animazione che fa muovere i cuori casualmente */
-@keyframes heartAnimation {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(30px, 40px); }
-    50% { transform: translate(-30px, -20px); }
-    75% { transform: translate(50px, -30px); }
-    100% { transform: translate(0, 0); }
-}
-
-/* Stile per il titolo e il testo */
-h1 {
+/* Stile per le domande */
+h1, h2 {
     font-size: 24px;
     margin-bottom: 20px;
     font-weight: bold;
 }
 
-h2 {
+label {
+    margin: 15px 0;
     font-size: 18px;
-    margin: 10px 0;
+    display: block;
 }
 
 /* Form e input */
@@ -56,13 +43,10 @@ form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
 }
 
-label {
-    margin: 10px 0;
-    font-size: 16px;
-}
-
+/* Stile per il bottone */
 button {
     background-color: #FF69B4; /* Rosa */
     border: none;
@@ -78,19 +62,31 @@ button:hover {
     background-color: #ff1493; /* Rosa scuro al passaggio del mouse */
 }
 
-/* Stile per i commenti */
-.comment {
-    font-size: 12px;
-    display: none;
-    margin-left: 10px;
+/* Stile per i cuori che cambiano posizione */
+.heart {
+    position: absolute;
+    font-size: 40px;
+    color: #FF1493; /* Rosa scuro */
+    animation: heartAnimation 5s ease-in-out infinite;
+    z-index: -1; /* Posizioniamo i cuori dietro al contenuto */
 }
 
-.correct {
-    color: green;
+/* Animazione che fa muovere i cuori casualmente */
+@keyframes heartAnimation {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(50px, 100px); }
+    50% { transform: translate(-50px, -50px); }
+    75% { transform: translate(70px, -100px); }
+    100% { transform: translate(0, 0); }
 }
 
-.incorrect {
-    color: red;
+/* Aggiungiamo più cuori nella pagina */
+.heart:nth-child(odd) {
+    animation-duration: 6s;
+}
+
+.heart:nth-child(even) {
+    animation-duration: 4s;
 }
 
 /* Sezione dei risultati */
@@ -106,4 +102,19 @@ button:hover {
 
 #message {
     color: #FF6347; /* Colore arancio per il messaggio */
+}
+
+/* Commenti per le risposte */
+.comment {
+    font-size: 14px;
+    display: none;
+    margin-left: 10px;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
 }

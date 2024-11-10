@@ -1,125 +1,156 @@
-/* Sfondo verde e rosa */
+/* CSS per il quiz */
 body {
+    font-family: Arial, sans-serif;
+    background-color: #b0e57c; /* Verde chiaro */
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(45deg, #98FB98, #FF69B4); /* Verde chiaro e rosa */
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: column;
-    overflow-x: hidden;
+    overflow-y: scroll; /* Impedisce la comparsa di scroll se i cuori escono dai bordi */
 }
 
-/* Container centrale del quiz */
-.container {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 800px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Contenitore scrollabile per le domande */
-.questions-container {
-    max-height: 60vh; /* Aggiungiamo un limite all'altezza */
-    overflow-y: auto; /* Permette lo scorrimento verticale */
-    padding-right: 10px; /* Spazio per la scrollbar */
-}
-
-/* Stile per le domande */
-h1, h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-label {
-    margin: 15px 0;
-    font-size: 18px;
-    display: block;
-}
-
-/* Form e input */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-/* Stile per il bottone */
-button {
-    background-color: #FF69B4;
-    border: none;
-    color: white;
-    font-size: 18px;
-    padding: 12px 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ff1493;
-}
-
-/* Stile per i cuori che cambiano posizione */
-.heart {
-    position: absolute;
-    font-size: 40px;
-    color: #FF1493;
-    animation: heartAnimation 5s ease-in-out infinite;
-    z-index: -1; /* Posizioniamo i cuori dietro al contenuto */
-}
-
-/* Animazione per il movimento dei cuori */
-@keyframes heartAnimation {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(50px, 100px); }
-    50% { transform: translate(-50px, -50px); }
-    75% { transform: translate(70px, -100px); }
-    100% { transform: translate(0, 0); }
-}
-
-/* Aggiungiamo più cuori */
-.heart:nth-child(odd) {
-    animation-duration: 6s;
-}
-
-.heart:nth-child(even) {
-    animation-duration: 4s;
-}
-
-/* Sezione dei risultati */
-#result {
-    margin-top: 30px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-#score {
-    color: #32CD32;
-}
-
-#message {
-    color: #FF6347;
-}
-
-/* Commenti per le risposte */
 .comment {
     font-size: 14px;
-    display: none;
     margin-left: 10px;
+    display: none;  /* Cambia da inline-block a block per separare meglio i commenti */
+    font-style: italic;
+    transition: all 0.3s ease-in-out;
+    margin-top: 5px; /* Aggiungi un piccolo margine per i commenti */
 }
 
 .correct {
     color: green;
+    font-weight: bold;
 }
 
 .incorrect {
     color: red;
+    font-weight: bold;
+}
+/* Contenitore del quiz */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: auto; /* L'altezza sarà determinata dal contenuto */
+    max-height: 90vh; /* Limita l'altezza a un massimo del 90% dell'altezza della finestra */
+    overflow-y: auto; /* Aggiunge il scroll verticale solo al contenuto del quiz */
+}
+
+/* Titolo principale */
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+}
+
+/* Titolo delle domande */
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Etichette delle risposte */
+label {
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+/* Stile del bottone */
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Risultati del quiz */
+#result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Punteggio finale */
+#score {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Messaggio finale */
+#message {
+    font-size: 20px;
+    color: #555;
+}
+
+/* Cuoricini sparsi nella pagina */
+.heart {
+    position: absolute;
+    font-size: 2rem;
+    color: red;
+    animation: float 5s infinite;
+}
+
+/* Animazione dei cuori: muovono verso l'alto e verso destra in modo casuale */
+@keyframes float {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+        transform: translate(10px, -20px);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(30px, -50px);
+    }
+}
+
+/* Cuoricini che compaiono a posizioni randomiche */
+@media (min-width: 768px) {
+    /* Cuori su dispositivi con schermi più grandi */
+    .heart:nth-child(odd) {
+        font-size: 2.5rem;
+        animation-duration: 7s;
+    }
+    .heart:nth-child(even) {
+        font-size: 1.8rem;
+        animation-duration: 4s;
+    }
+}
+
+/* Posizioni casuali dei cuori */
+@keyframes positionRandom {
+    0% {
+        left: 10%;
+        top: 10%;
+    }
+    25% {
+        left: 50%;
+        top: 20%;
+    }
+    50% {
+        left: 80%;
+        top: 40%;
+    }
+    75% {
+        left: 30%;
+        top: 60%;
+    }
+    100% {
+        left: 10%;
+        top: 80%;
+    }
 }

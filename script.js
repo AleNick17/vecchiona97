@@ -1,7 +1,7 @@
 // Aggiungi un event listener per il submit del form
 document.getElementById("quiz-form").addEventListener("submit", function(event) {
     event.preventDefault();  // Impedisce il ricaricamento della pagina
-    function calculateResult() {
+
     // Risposte corrette per ciascuna domanda
     const correctAnswers = {
         question1: 'c', // La risposta corretta alla domanda 1 è "Su Omegle"
@@ -15,18 +15,18 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     };
 
     // Risposte dell'utente
-    //const userAnswers
-        //question1: document.querySelector('input[name="question1"]:checked')?.value,
-        //question2: document.querySelector('input[name="question2"]:checked')?.value,
-        //question3: document.querySelector('input[name="question3"]:checked')?.value,
-        //question4: document.querySelector('input[name="question4"]:checked')?.value,
-        //question5: document.querySelector('input[name="question5"]:checked')?.value,
-        //question6: document.querySelector('input[name="question6"]:checked')?.value,
-        //question7: document.querySelector('input[name="question7"]:checked')?.value,
-        //question8: document.querySelector('input[name="question8"]:checked')?.value
-    
-    
-    //commenti a risposte
+    const userAnswers = {
+        question1: document.querySelector('input[name="question1"]:checked')?.value,
+        question2: document.querySelector('input[name="question2"]:checked')?.value,
+        question3: document.querySelector('input[name="question3"]:checked')?.value,
+        question4: document.querySelector('input[name="question4"]:checked')?.value,
+        question5: document.querySelector('input[name="question5"]:checked')?.value,
+        question6: document.querySelector('input[name="question6"]:checked')?.value,
+        question7: document.querySelector('input[name="question7"]:checked')?.value,
+        question8: document.querySelector('input[name="question8"]:checked')?.value
+    };
+
+    // commenti a risposte
     const comments = {
         question1: {
             a: "Hmm... questo è quello che hai detto ai tuoi",
@@ -81,25 +81,24 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     // Calcola il punteggio
     let score = 0;
 
-   // Per ogni domanda, controlliamo se la risposta è corretta
+    // Per ogni domanda, controlliamo se la risposta è corretta
     for (let i = 1; i <= 8; i++) {
-        let selectedAnswer = document.querySelector(`input[name="question${i}"]:checked`);
+        let selectedAnswer = userAnswers[`question${i}`];
 
         if (selectedAnswer) {
-            let userAnswer = selectedAnswer.value;
             let correctAnswer = correctAnswers[`question${i}`];
-            let commentId = `comment${i}${userAnswer}`;
-
+            let commentId = `comment${i}${selectedAnswer}`;
+            
             // Otteniamo l'elemento commento relativo alla risposta selezionata
             let commentElement = document.getElementById(commentId);
 
-            if (userAnswer === correctAnswer) {
+            if (selectedAnswer === correctAnswer) {
                 score += 1;
-                commentElement.textContent = comments[`question${i}`][userAnswer];
+                commentElement.textContent = comments[`question${i}`][selectedAnswer];
                 commentElement.classList.add("correct");
                 commentElement.classList.remove("incorrect");
             } else {
-                commentElement.textContent = comments[`question${i}`][userAnswer];
+                commentElement.textContent = comments[`question${i}`][selectedAnswer];
                 commentElement.classList.add("incorrect");
                 commentElement.classList.remove("correct");
             }
@@ -107,7 +106,8 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     };
 
     // Calcola la percentuale di risposte corrette
-    const percentage = (score / 8) * 100;
+    const totalQuestions = 8; // Numero totale di domande
+    const percentage = (score / totalQuestions) * 100;
 
     // Mostra il punteggio
     document.getElementById("score").textContent = `Hai ottenuto ${score} su ${totalQuestions} risposte corrette! (${percentage.toFixed(2)}%)`;
@@ -127,7 +127,5 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
 
     // Mostra il risultato
     document.getElementById("result").style.display = "block";
-    }
 });
-
 

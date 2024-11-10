@@ -49,5 +49,5 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     document.getElementById("message").textContent = message;
 
     // Mostra il risultato
-    document.getElementById("result").style.display = "block";
+    document.getElementById("result").style.display = "";
 });

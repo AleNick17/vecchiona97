@@ -3,44 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz per la Mia Ragazza</title>
+    <title>Quiz Interattivo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Ciao amorino mio! Per prima cosa devi rispondere a delle domande!</h1>
-        <form id="quizForm">
-            <p>1. Dove ci siamo conosciuti?</p>
-            <input type="radio" name="q1" value="All'università"> All'università<br>
-            <input type="radio" name="q1" value="In discoteca"> In discoteca<br>
-            <input type="radio" name="q1" value="Su Omegle"> Su Omegle<br>
-            <input type="radio" name="q1" value="Non ci siamo mai conosciuti"> Non ci siamo mai conosciuti<br>
-            
-            <p>2. In che anno ci siamo conosciuti?</p>
-            <input type="radio" name="q2" value="2020"> 2020<br>
-            <input type="radio" name="q2" value="2019"> 2019<br>
-            <input type="radio" name="q2" value="2022"> 2022<br>
-            <input type="radio" name="q2" value="2021"> 2021<br>
-            
-            <p>3. Che giorno era?</p>
-            <input type="radio" name="q3" value="Giovedì 26 Agosto"> Giovedì 26 Agosto<br>
-            <input type="radio" name="q3" value="Mercoledì 25 Agosto"> Mercoledì 25 Agosto<br>
-            <input type="radio" name="q3" value="Sabato 28 Agosto"> Sabato 28 Agosto<br>
-            <input type="radio" name="q3" value="Sabato 25 Settembre"> Sabato 25 Settembre<br>
-            
-            <p>4. Qual è il mio colore preferito?</p>
-            <input type="radio" name="q4" value="Blu"> Blu<br>
-            <input type="radio" name="q4" value="Rosso"> Rosso<br>
-            <input type="radio" name="q4" value="Verde"> Verde<br>
-            <input type="radio" name="q4" value="Bianco"> Bianco<br>
+        <h1>Quiz: Quanto mi conosci?</h1>
+        
+        <form id="quiz-form">
+            <!-- Domanda 1 -->
+            <h2>1) Dove ci siamo conosciuti?</h2>
+            <label><input type="radio" name="question1" value="a"> All'università</label><br>
+            <label><input type="radio" name="question1" value="b"> In discoteca</label><br>
+            <label><input type="radio" name="question1" value="c"> Su Omegle</label><br>
+            <label><input type="radio" name="question1" value="d"> Non ci siamo mai conosciuti</label><br>
+
+            <!-- Domanda 2 -->
+            <h2>2) In che anno ci siamo conosciuti?</h2>
+            <label><input type="radio" name="question2" value="a"> 2020</label><br>
+            <label><input type="radio" name="question2" value="b"> 2019</label><br>
+            <label><input type="radio" name="question2" value="c"> 2021</label><br>
+            <label><input type="radio" name="question2" value="d"> 2022</label><br>
+
+            <!-- Domanda 3 -->
+            <h2>3) Che giorno era?</h2>
+            <label><input type="radio" name="question3" value="a"> Giovedì 26 agosto</label><br>
+            <label><input type="radio" name="question3" value="b"> Mercoledì 25 agosto</label><br>
+            <label><input type="radio" name="question3" value="c"> Sabato 28 agosto</label><br>
+            <label><input type="radio" name="question3" value="d"> Sabato 25 settembre</label><br>
+
+            <!-- Domanda 4 -->
+            <h2>4) Qual è il mio colore preferito?</h2>
+            <label><input type="radio" name="question4" value="a"> Blu</label><br>
+            <label><input type="radio" name="question4" value="b"> Rosso</label><br>
+            <label><input type="radio" name="question4" value="c"> Verde</label><br>
+            <label><input type="radio" name="question4" value="d"> Bianco</label><br>
 
             <button type="submit">Invia Risposte</button>
         </form>
+
+        <div id="result" style="display:none;">
+            <h3 id="score"></h3>
+            <p id="message"></p>
+        </div>
     </div>
-    <div id="result" style="display:none;">
-        <h2 id="score"></h2>
-             <p id="message"></p>
-     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

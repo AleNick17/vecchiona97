@@ -54,10 +54,10 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
             d: "E'vero metto sempre magliette bianche, però non è questooo!"
         },
         question5: {
-            a: "Menomale, almeno mi conosci un pochino!!",
-            b: "Quando mai è stato il rossooooo",
-            c: "Questo è il tuo, CRETINAAA",
-            d: "E'vero metto sempre magliette bianche, però non è questooo!"
+            a: "Non puoi aver risposto questo,non mi conosci!!",
+            b: "Brava, questa era tricky",
+            c: "Mi piace e sono bravo, ma non è questo :(",
+            d: "Sempre odiato, se hai risposto questo non conosci nulla di me"
         },
         question6: {
             a: "Menomale, almeno mi conosci un pochino!!",
@@ -66,16 +66,16 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
             d: "E'vero metto sempre magliette bianche, però non è questooo!"
         },
         question7: {
-            a: "Menomale, almeno mi conosci un pochino!!",
-            b: "Quando mai è stato il rossooooo",
-            c: "Questo è il tuo, CRETINAAA",
-            d: "E'vero metto sempre magliette bianche, però non è questooo!"
+            a: "Ti piacerebbeeeeeee",
+            b: "Ti piacerebbeeeee",
+            c: "Beh se non lo sai tu...vecchiaaaa",
+            d: "Ora non esageriamo!"
         },
         question8: {
-            a: "Menomale, almeno mi conosci un pochino!!",
-            b: "Quando mai è stato il rossooooo",
-            c: "Questo è il tuo, CRETINAAA",
-            d: "E'vero metto sempre magliette bianche, però non è questooo!"
+            a: "Sono triste...",
+            b: "Mi hai ferito tanto tanto tanto, un colpo al cuore",
+            c: "Siiiii anche io amore mio",
+            d: "Se hai scelto questa al posto dell'altra vuol dire che non mi ami abbastanza...VAFFANCULO"
         }
     };
 
@@ -116,13 +116,13 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     // Mostra il messaggio in base alla percentuale
     let message;
     if (percentage === 100) {
-        message = "Complimenti! Sei un esperto!";
+        message = "Bravissima amore mio, HAI VINTO!!!";
     } else if (percentage >= 75) {
-        message = "Ben fatto! Sei molto bravo!";
+        message = "Dai poteva andare peggio, spero tu ne abbia sbagliata solo una...";
     } else if (percentage >= 50) {
-        message = "Non male, ma c'è ancora spazio per migliorare!";
+        message = "Male male dovro riconsiderare la nostra relazione";
     } else {
-        message = "Oh no! Dobbiamo ripassare un po'!";
+        message = "Io fossi in te mi VERGOGNEREI";
     }
     document.getElementById("message").textContent = message;
 

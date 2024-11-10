@@ -1,7 +1,7 @@
 // Aggiungi un event listener per il submit del form
 document.getElementById("quiz-form").addEventListener("submit", function(event) {
     event.preventDefault();  // Impedisce il ricaricamento della pagina
-    
+    function calculateResult() {
     // Risposte corrette per ciascuna domanda
     const correctAnswers = {
         question1: 'c', // La risposta corretta alla domanda 1 è "Su Omegle"
@@ -15,16 +15,16 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     };
 
     // Risposte dell'utente
-    const userAnswers = {
-        question1: document.querySelector('input[name="question1"]:checked')?.value,
-        question2: document.querySelector('input[name="question2"]:checked')?.value,
-        question3: document.querySelector('input[name="question3"]:checked')?.value,
-        question4: document.querySelector('input[name="question4"]:checked')?.value,
-        question5: document.querySelector('input[name="question5"]:checked')?.value,
-        question6: document.querySelector('input[name="question6"]:checked')?.value,
-        question7: document.querySelector('input[name="question7"]:checked')?.value,
-        question8: document.querySelector('input[name="question8"]:checked')?.value
-    };
+    //const userAnswers
+        //question1: document.querySelector('input[name="question1"]:checked')?.value,
+       // question2: document.querySelector('input[name="question2"]:checked')?.value,
+       // question3: document.querySelector('input[name="question3"]:checked')?.value,
+       // question4: document.querySelector('input[name="question4"]:checked')?.value,
+       // question5: document.querySelector('input[name="question5"]:checked')?.value,
+       // question6: document.querySelector('input[name="question6"]:checked')?.value,
+       // question7: document.querySelector('input[name="question7"]:checked')?.value,
+        //question8: document.querySelector('input[name="question8"]:checked')?.value
+    
     
     //commenti a risposte
     const comments = {
@@ -123,7 +123,7 @@ document.getElementById("quiz-form").addEventListener("submit", function(event) 
     } else {
         message = "Oh no! Dobbiamo ripassare un po'!";
     }
-
+    }
     document.getElementById("message").textContent = message;
 
     // Mostra il risultato

@@ -4,7 +4,7 @@ body {
     background-color: #b0e57c; /* Verde chiaro */
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Impedisce la comparsa di scroll se i cuori escono dai bordi */
+    overflow-y: scroll; /* Impedisce la comparsa di scroll se i cuori escono dai bordi */
 }
 
 .comment {
@@ -33,6 +33,9 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: auto; /* L'altezza sarà determinata dal contenuto */
+    max-height: 90vh; /* Limita l'altezza a un massimo del 90% dell'altezza della finestra */
+    overflow-y: auto; /* Aggiunge il scroll verticale solo al contenuto del quiz */
 }
 
 /* Titolo principale */
